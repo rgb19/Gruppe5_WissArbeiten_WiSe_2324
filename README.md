@@ -2,7 +2,7 @@
 Repository für die Github Gruppenarbeit
 
 # Das Github sollte die folgenden Dateien enthalten:
-# 1. Titanic.csv (Rohdaten)
+ 1. Titanic.csv (Rohdaten)\n
 # 2. Checkliste (pdf) und Aufgabenblatt
 # 2. R-Datei zum transformieren
 # 3. R-Data der Arbeitsdaten
