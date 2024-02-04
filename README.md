@@ -7,4 +7,6 @@ Repository für die Github Gruppenarbeit
 # 2. R-Datei zum transformieren
 # 3. R-Data der Arbeitsdaten
 # 4. Die 2 Skripte für (Hilfs-)Funktionen
-# 5. R Skript der Auswerung
+# 5. R Skript der Auswertung
+
+# Aufgabenverteilung und Zeitplanung:
