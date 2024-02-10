@@ -8,7 +8,14 @@ titanic <- subset(titanic, select = -c(Ticket, PassengerId))
 # separate names into relevant particles and remove name
 titanic <- separate(titanic, "Name", into = c(NA, "form_of_address"), sep = "[,.] ", extra = "drop")
 
-# estimate missing age values by taking the mean of all other passengers with the the same form of address
+# combine addresses with the same meaning into a single address
+f_young_unmarried <- c("Ms", "Mlle", "Miss")
+f_married <- c("Mrs", "Mme")
+
+titanic[titanic$form_of_address %in% f_young_unmarried, ]$form_of_address <- "Ms"
+titanic[titanic$form_of_address %in% f_married, ]$form_of_address <- "Mrs"
+
+# estimate missing age values by taking the mean of all other passengers with the the same address
 nas <- titanic[is.na(titanic$Age), ]
 for (foa in unique(nas$form_of_address)) {
     subframe <- titanic[titanic$form_of_address == foa, ]
