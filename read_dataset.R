@@ -24,30 +24,31 @@ for (foa in unique(nas$form_of_address)) {
     titanic[is.na(titanic$Age) & titanic$form_of_address == foa, ]$Age <- avg_age
 }
 
-#Kabinen Informationen
-#Backbord/Steuerbord
-        #Erinnerung: ungerade->Steuerbord
+# Kabineninformationen
+# Backbord/Steuerbord
+# Erinnerung: ungerade->Steuerbord
 
-substrRight <- function(x){
+substrRight <- function(x) {
   as.numeric(substr(x, nchar(x), nchar(x)))
 }
 
-cab<-sapply(titanic$Cabin, substrRight)
-cab<-unname(cab)
-titanic$Side<-ifelse(cab%%2, 'Steuerbord', 'Backbord')
+cab <- sapply(titanic$Cabin, substrRight)
+cab <- unname(cab)
+titanic$Side <- ifelse(cab %% 2, "Steuerbord", "Backbord")
 
-#Fehlende Kabinennummern zu "NA"
-titanic$Cabin[which(titanic$Cabin== "")]<-NA
+# Fehlende Kabinennummern zu "NA"
+titanic$Cabin[which(titanic$Cabin == "")] <- NA
 
-#Deck
-titanic$Deck<- as.character(gsub("[0-9]", "", titanic$Cabin))
-<<<<<<< Updated upstream
-=======
+# Deck
+titanic$Deck <- as.character(gsub("[0-9]", "", titanic$Cabin))
 
-#Drop Cabin from Dataset
+# drop "Cabin" from dataset
 titanic <- subset(titanic, select = -c(Cabin))
 
-#Convert to Factor
+# Convert to Factor
+# Pclass
+titanic$Pclass <- factor(titanic$Pclass, ordered = TRUE)
+
 # Survived
 titanic$Survived <- factor(titanic$Survived, levels = c(0, 1), labels = c("dead", "alive"))
 
@@ -56,4 +57,3 @@ titanic$Sex <- as.factor(titanic$Sex)
 
 # Embarked
 titanic$Embarked <- as.factor(titanic$Embarked)
->>>>>>> Stashed changes
