@@ -57,3 +57,5 @@ titanic$Sex <- as.factor(titanic$Sex)
 
 # Embarked
 titanic$Embarked <- as.factor(titanic$Embarked)
+
+saveRDS(titanic, "titanic.rds")
