@@ -45,3 +45,5 @@ titanic$Deck <- as.character(gsub("[0-9]", "", titanic$Cabin))
 # drop "Cabin" from dataset
     titanic <- subset(titanic, select = -c(Cabin))
 
+# Pclass
+titanic$Pclass <- factor(titanic$Pclass, ordered = TRUE)
