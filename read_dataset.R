@@ -41,3 +41,7 @@ titanic$Cabin[which(titanic$Cabin == "")] <- NA
 
 # Deck
 titanic$Deck <- as.character(gsub("[0-9]", "", titanic$Cabin))
+
+# drop "Cabin" from dataset
+    titanic <- subset(titanic, select = -c(Cabin))
+
