@@ -41,3 +41,19 @@ titanic$Cabin[which(titanic$Cabin== "")]<-NA
 
 #Deck
 titanic$Deck<- as.character(gsub("[0-9]", "", titanic$Cabin))
+<<<<<<< Updated upstream
+=======
+
+#Drop Cabin from Dataset
+titanic <- subset(titanic, select = -c(Cabin))
+
+#Convert to Factor
+# Survived
+titanic$Survived <- factor(titanic$Survived, levels = c(0, 1), labels = c("dead", "alive"))
+
+# Sex
+titanic$Sex <- as.factor(titanic$Sex)
+
+# Embarked
+titanic$Embarked <- as.factor(titanic$Embarked)
+>>>>>>> Stashed changes
