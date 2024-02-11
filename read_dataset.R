@@ -43,7 +43,17 @@ titanic$Cabin[which(titanic$Cabin == "")] <- NA
 titanic$Deck <- as.character(gsub("[0-9]", "", titanic$Cabin))
 
 # drop "Cabin" from dataset
-    titanic <- subset(titanic, select = -c(Cabin))
+titanic <- subset(titanic, select = -c(Cabin))
 
+# Convert to Factor
 # Pclass
 titanic$Pclass <- factor(titanic$Pclass, ordered = TRUE)
+
+# Survived
+titanic$Survived <- factor(titanic$Survived, levels = c(0, 1), labels = c("dead", "alive"))
+
+# Sex
+titanic$Sex <- as.factor(titanic$Sex)
+
+# Embarked
+titanic$Embarked <- as.factor(titanic$Embarked)
