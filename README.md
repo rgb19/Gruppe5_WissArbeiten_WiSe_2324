@@ -5,7 +5,7 @@ Repository für die Github Gruppenarbeit
 # 1. Titanic.csv (Rohdaten)
 # 2. Checkliste (pdf) und Aufgabenblatt
 # 2. R-Datei zum transformieren
-# 3. R-Data der Arbeitsdaten
+# 3. R-Data der Arbeitsdaten (Genügt wenn in 2 im Skript gespeichert wird)
 # 4. Die 2 Skripte für (Hilfs-)Funktionen
 # 5. R Skript der Auswertung
 
