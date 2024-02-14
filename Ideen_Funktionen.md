@@ -13,3 +13,5 @@ Summary um IQR erweitert, Zu IV: Plot der Gruppen für die Var in einem Graph od
 # Oumaima:
 
 # Timo:
+
+Zu III: Abhängigkeit zw survived und pclass (Chi^2 oder Cramer V)
