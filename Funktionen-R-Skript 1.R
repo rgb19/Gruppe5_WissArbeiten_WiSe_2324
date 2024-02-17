@@ -14,7 +14,8 @@ categorial_stats <- function(df, column_names, ordered = FALSE) {
             sublist[["median"]] <- median(data)
         }
 
-        sublist[["Empirical Entropy"]] <- empirical_entropy(data)
+        sublist[["Empirical entropy"]] <- empirical_entropy(data)
+        sublist[["Phi dispersion"]] <- phi_dispersion(data)
 
         outlist[["colname"]] <- sublist
     }
