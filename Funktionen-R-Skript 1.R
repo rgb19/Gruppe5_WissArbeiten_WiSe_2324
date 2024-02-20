@@ -50,3 +50,9 @@ categorial_stats <- function(df, column_names, ordered = FALSE) {
 
     return(outlist)
 }
+
+# 5.v):
+# Visualisierung von drei oder vier Variablen
+        # 1: Mosaicplot ~ exakt, aber eher für Überblick
+        # 2. "Barplot"  ~ (mittels) ggplot2 -> Abhängig einer Var für die anderen
+        #                 Plot per Kategorie => Analyse innerhalb einer Gruppe
