@@ -11,9 +11,9 @@ Repository für die Github Gruppenarbeit
 
 # Aufgabenverteilung und Zeitplanung:
 
-1. Vorverarbeitung: Timo und Leonie [4.02 ~ 11.02]
-2. Erstellen R-Skripte: Gruppenaufgabe; evtl. noch folgende genauere Aufteilung [13.02 ~ 18.02]
-3. Analyse: Felix, Oleksii, Oumaima [18.02 ~ 24.02] {Kann auch vorher beginnen}
+1. Vorverarbeitung: Timo und Leonie
+2. Erstellen R-Skripte: Gruppenaufgabe; evtl. noch folgende genauere Aufteilung
+3. Analyse: Felix, Oleksii, Oumaima 
 4. Diskussion/Interpretation [25.02; Vorher wenn 4 vorher fertig]
 
 # Wichtiges bzgl. Checkliste:
