@@ -84,10 +84,24 @@ mosaiccompare <- function(data,main = paste("Mosaicplot für:",toString(names(da
    # Es braucht eig. keine Hilfsfunktion für das Teilen
    # Da wir ja eh für jede Kategorie loopen!
 
-bar_split <- function(data,...){
-  # Main fehlt noch, data auch hier nur ein Abschnitt !!
-  # Alle Var. in data sollen Faktoren sein !!
-  print("Rahmen ohne Inhalt imM")
+bar_split <- function(data,split_by = 1, ...){
+  # Alle Var. sind Faktoren
+  # split_by = x -> x ist Indize der Var. für die wir untersuchen
+  n <- length(data)
+  par(mfrow = c(nlevels(data[,split_by]),1)) # Eine Grafik pro Gruppe
+  
+  for(i in 1:nlevels(data[,split_by])){
+    
+    temp <- data[data[split_by] == levels(data[,split_by])[i],]
+    # temporärer df für die i-te Kategorie
+    temp <- temp[,-split_by]
+    # Wir untersuchen ja für die anderen Var. bzgl. dieser!
+    
+    for(j in 1:(n-1)){
+      barplot(table(temp[,j]))
+    }
+    
+  }
 }
 # automatisches mfrow.. sollte gehen wir haben nur 5 kategorielle Var.
 
