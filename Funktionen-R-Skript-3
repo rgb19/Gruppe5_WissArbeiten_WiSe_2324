@@ -1,0 +1,3 @@
+# Anwendung der Funktionen zur Interpretation des Datensatzes
+
+our_titanic <- readRDS("titanic.rds)
