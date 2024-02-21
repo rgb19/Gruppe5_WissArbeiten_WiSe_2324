@@ -84,27 +84,39 @@ mosaiccompare <- function(data,main = paste("Mosaicplot für:",toString(names(da
    # Es braucht eig. keine Hilfsfunktion für das Teilen
    # Da wir ja eh für jede Kategorie loopen!
 
-bar_split <- function(data,split_by = 1, ...){
-  # Alle Var. sind Faktoren
+bar_split <- function(data,split_by = 1){
+  # data ist auch hier ABSCHNITT DER KATEGORIELLEN VAR!!!
   # split_by = x -> x ist Indize der Var. für die wir untersuchen
+  # Wir geben nichts weiter an die Plots, wäre mit bsp. ggplot2 möglich
   n <- length(data)
-  par(mfrow = c(nlevels(data[,split_by]),1)) # Eine Grafik pro Gruppe
+  par(mfrow = c(length(data)-1,1)) # Eine "Seite" pro Gruppe
   
-  for(i in 1:nlevels(data[,split_by])){
+  if(is.factor(data[,split_by]) == TRUE){
+    # Bei Titel definitiv, ansonsten (ungetestet) sollte die Logik nicht klappen
     
-    temp <- data[data[split_by] == levels(data[,split_by])[i],]
-    # temporärer df für die i-te Kategorie
-    temp <- temp[,-split_by]
-    # Wir untersuchen ja für die anderen Var. bzgl. dieser!
+   for(i in 1:nlevels(data[,split_by])){
     
-    for(j in 1:(n-1)){
-      barplot(table(temp[,j]))
-    }
+     temp <- data[data[split_by] == levels(data[,split_by])[i],]
+     # temporärer df für die i-te Kategorie
+     temp <- temp[,-split_by]
+     # Wir untersuchen ja für die anderen Var. bzgl. dieser!
     
+     for(j in 1:(n-1)){
+       barplot(table(temp[,j]),main = paste("Barplot für:",names(temp)[j],
+               "unter",names(data)[split_by],"=",levels(data[,split_by])[i]),
+               ylab = "Häufigkeit")
+     }
+   }
   }
+  else{
+      print("EINGABEFEHLER: (Zumindest) Die Splitvariable muss ein factor sein")
+    }
 }
-# automatisches mfrow.. sollte gehen wir haben nur 5 kategorielle Var.
 
+# Schon besser, macht natürlich nur Sinn, wenn wir auch mehr als 2 Klassen haben
+titanic <- readRDS("titanic.rds")
+bar_split(titanic[c(1,2,4)],split_by = 2)
+# Beispielcode für Passagierklasse; Soll es noch besondere Farben geben?
 
 
 
