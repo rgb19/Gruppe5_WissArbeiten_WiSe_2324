@@ -11,6 +11,7 @@ Summary um IQR erweitert, Zu IV: Plot der Gruppen für die Var in einem Graph od
 # Oleksii:
 
 # Oumaima:
+Zu III: Abhängigkeit zw survived und Sex 
 
 # Timo:
 
