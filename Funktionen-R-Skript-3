@@ -1,6 +1,9 @@
 # Anwendung der Funktionen zur Interpretation des Datensatzes
 
 our_titanic <- readRDS("titanic.rds)
+source("Funktionen-R-Skript 1.R")
+source("Funktionen-R-Skript 2.R")
+
 #fkt1
 calculate_descriptive_stats_numeric <- function(data) {
   numeric_vars <- sapply(data, is.numeric)
@@ -17,6 +20,8 @@ calculate_descriptive_stats_categorical <- function(data) {
   stats <- lapply(cat_data, function(x) table(x, useNA = "ifany"))
   return(stats)
 }
+
+# Deskriptive Statistiken:
 
 numeric_data <- our_titanic[, sapply(our_titanic, is.numeric)]
 numeric_stats <- calculate_descriptive_stats_numeric(numeric_data)
