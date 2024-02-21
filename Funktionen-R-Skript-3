@@ -1,3 +1,29 @@
 # Anwendung der Funktionen zur Interpretation des Datensatzes
 
 our_titanic <- readRDS("titanic.rds)
+#fkt1
+calculate_descriptive_stats_numeric <- function(data) {
+  numeric_vars <- sapply(data, is.numeric)
+  numeric_data <- data[, numeric_vars]
+  stats <- sapply(numeric_data, function(x) c(mean = mean(x, na.rm = TRUE), 
+                                              median = median(x, na.rm = TRUE), 
+                                              sd = sd(x, na.rm = TRUE)))
+  return(stats)
+}
+#fkt2
+calculate_descriptive_stats_categorical <- function(data) {
+  cat_vars <- sapply(data, is.factor)
+  cat_data <- data[, cat_vars]
+  stats <- lapply(cat_data, function(x) table(x, useNA = "ifany"))
+  return(stats)
+}
+
+numeric_data <- our_titanic[, sapply(our_titanic, is.numeric)]
+numeric_stats <- calculate_descriptive_stats_numeric(numeric_data)
+print("Descriptive Statistics for Numeric Variables:")
+print(numeric_stats)
+
+categorical_stats <- calculate_descriptive_stats_categorical(our_titanic)
+print("Descriptive Statistics for Categorical Variables:")
+print(categorical_stats)
+###############################################################################################
