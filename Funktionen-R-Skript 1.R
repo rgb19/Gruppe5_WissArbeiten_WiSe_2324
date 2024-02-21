@@ -56,3 +56,41 @@ categorial_stats <- function(df, column_names, ordered = FALSE) {
         # 1: Mosaicplot ~ exakt, aber eher für Überblick
         # 2. "Barplot"  ~ (mittels) ggplot2 -> Abhängig einer Var für die anderen
         #                 Plot per Kategorie => Analyse innerhalb einer Gruppe
+
+  ## na.rm im folgenden immer auf TRUE gesetzt! Wenn nicht Standard
+  ## In diesen Grafiken macht eine Unterscheidung für
+  ## geordnete Faktoren wenig Sinn
+
+# Output: Die Grafiken | Input: Abschnitte eines DF!
+
+mosaiccompare <- function(data,main = paste("Mosaicplot für:",toString(names(data))),...){
+  #... weitere Argumente per ... für spezifischere Grafiken
+  
+  if(length(data) < 3 | length(data) > 4 | is.data.frame(data) == FALSE){
+    print("Data in Form eines df, bzw. eines Teils welcher 3/4 Variablen enthält, eingeben")
+  }  
+  # seperater Test dass die Variablen kategorial sind möglich
+  # geht aber über Projekt hinaus; (Fehler-)Meldungen einzelner Funktionen reichen
+  else{
+    mosaicplot(table(data),main,...)
+    # na's werden standardmäßig ommitted; na.action für S3 mosaicplot
+  }
+    # Farben automatisch erstellen
+}
+
+# Für 4 Variablen ist das ganze leicht unübersichtlich
+
+### 2,3 Barplots für die Var. einer Teilgruppe!
+   # Es braucht eig. keine Hilfsfunktion für das Teilen
+   # Da wir ja eh für jede Kategorie loopen!
+
+bar_split <- function(data,...){
+  # Main fehlt noch, data auch hier nur ein Abschnitt !!
+  # Alle Var. in data sollen Faktoren sein !!
+  print("Rahmen ohne Inhalt imM")
+}
+# automatisches mfrow.. sollte gehen wir haben nur 5 kategorielle Var.
+
+
+
+
