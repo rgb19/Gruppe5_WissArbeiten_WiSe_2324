@@ -57,6 +57,7 @@ categorial_stats <- function(df, column_names, ordered = FALSE) {
 # Output: Benannte Liste. Jedes Objekt der Liste hat den Namen der analysierten
 #         Spalte und ist wiederum eine benannte Liste                    
 
+
                       
 # 5.v):
 # Visualisierung von drei oder vier Variablen
