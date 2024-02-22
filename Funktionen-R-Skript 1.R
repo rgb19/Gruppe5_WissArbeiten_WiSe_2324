@@ -53,9 +53,14 @@ categorial_stats <- function(df, column_names, ordered = FALSE) {
 
 # 2.iii. 3)
 # bivariate_stats -                
-# Input:
-# Output: Benannte Liste. Jedes Objekt der Liste hat den Namen der analysierten
-#         Spalte und ist wiederum eine benannte Liste                    
+source("Funktionen-R-Skript 2.R")
+
+# chi_square_analysis - Führt eine Chi-Quadrat-Analyse für "pclass" und "survived" durch
+#
+# Input: daten - Dataframe, der die Variablen "pclass" und "survived" enthält
+#
+# Output: Ergebnis des Chi-Quadrat-Tests, einschließlich Chi-Quadrat-Statistik und p-Wert
+                 
 
 
                       
