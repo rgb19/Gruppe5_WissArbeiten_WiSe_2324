@@ -62,8 +62,8 @@ source("Funktionen-R-Skript 2.R")
 # Output: Ergebnis des Chi-Quadrat-Tests, einschließlich Chi-Quadrat-Statistik und p-Wert
                  
 chi_square_analysis <- function(daten) {
-  # Anwendung der Chi-Quadrat-Hilfsfunktion für "pclass" und "survived"
-  chi_quadrat_ergebnis <- chi_square_test(daten, "pclass", "survived")
+  # Anwendung der Chi-Quadrat-Hilfsfunktion für "Pclass" und "survived"
+  chi_quadrat_ergebnis <- chi_square_test(daten, "Pclass", "survived")
   
   # Erstellung einer benannten Liste für die Ergebnisse
   ergebnisse <- list(
