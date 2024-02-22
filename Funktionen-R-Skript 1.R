@@ -53,6 +53,46 @@ categorial_stats <- function(df, column_names, ordered = FALSE) {
 
 # 2.iii. 3)
 # bivariate_stats -                
+# Input:
+# Output: Benannte Liste. Jedes Objekt der Liste hat den Namen der analysierten
+#         Spalte und ist wiederum eine benannte Liste                    
+
+#2.iv)
+# Berechnet Durchschnitt und Varianz von einer metrischen Variable im 
+#   Zusammenhang einer Dichotomen Variable und führt einen T-Test mit diesen 
+#   durch
+# Input: m - metrische Variable
+#        d - dichotome Variable
+# Output: Liste mit Durchschnitt, Varianz und T-Test Ergebnis von m und d
+
+MDStats <- function(m, d){
+  stopifnot(is.numeric(m), is.factor(d), nlevels(d) == 2)
+  
+  # Mittelwerte
+  m1 <- mean(m[d == levels(d)[1]])
+  m2 <- mean(m[d == levels(d)[2]])
+  
+  #Varianzen
+  v1 <- var(m[d == levels(d)[1]])
+  v2 <- var(m[d == levels(d)[2]])
+  
+  #T-Test
+  tt <- t.test(m ~ d)
+  
+  return(
+    list(
+      levels = levels(d),
+      mean_1 = m1,
+      mean_2 = m2,
+      var_1 = v1,
+      var_2 = v2,
+      t_test_stat = tt$statistic,
+      p_value = tt$p.value
+    )
+  )
+}
+                    
+=======
 source("Funktionen-R-Skript 2.R")
 
 # chi_square_analysis - Führt eine Chi-Quadrat-Analyse für "pclass" und "survived" durch
