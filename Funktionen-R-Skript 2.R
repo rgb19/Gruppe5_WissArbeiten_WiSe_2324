@@ -22,3 +22,14 @@ phi_dispersion <- function(h_k) {
     phi_max <- sum(abs(h_k - 1 / length(h_k)))
     return(phi_min / (phi_min + phi_max))
 }
+
+# Helfer-Funktion für Chi-Quadrat-Test
+
+# chi_square_test - Führt einen Chi-Quadrat-Test für zwei kategoriale Variablen durch
+#                   um den Zusammenhang zwischen ihnen zu überprüfen
+#
+# Input: daten - Datenrahmen, der die Variablen enthält
+#        var1 - Name der ersten kategorialen Variable als Zeichenkette
+#        var2 - Name der zweiten kategorialen Variable als Zeichenkette
+#
+# Output: Ergebnis des Chi-Quadrat-Tests
