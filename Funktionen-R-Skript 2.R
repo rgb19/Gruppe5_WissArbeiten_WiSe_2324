@@ -23,6 +23,7 @@ phi_dispersion <- function(h_k) {
     return(phi_min / (phi_min + phi_max))
 }
 
+
 # Helfer-Funktion für Chi-Quadrat-Test
 
 # chi_square_test - Führt einen Chi-Quadrat-Test für zwei kategoriale Variablen durch
@@ -33,3 +34,13 @@ phi_dispersion <- function(h_k) {
 #        var2 - Name der zweiten kategorialen Variable als Zeichenkette
 #
 # Output: Ergebnis des Chi-Quadrat-Tests
+chi_square_test <- function(daten, var1, var2) {
+  # Erstellung einer Kontingenztafel für die gegebenen Variablen
+  kontingenz_tafel <- table(daten[[var1]], daten[[var2]])
+  
+  # Durchführung des Chi-Quadrat-Tests
+  test_ergebnis <- chisq.test(kontingenz_tafel)
+  
+  # Rückgabe des Testergebnisses
+  return(test_ergebnis)
+}
