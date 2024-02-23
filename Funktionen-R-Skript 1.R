@@ -2,6 +2,25 @@
 source("Funktionen-R-Skript 2.R")
 
 # 2.ii)
+
+analyze_data <- function(titanic_data) {
+  categorical_statistics <- categorial_stats(titanic_data, 
+                                             column_names = c("Survived", "Pclass", "Sex", "Embarked"),
+                                             ordered = c(FALSE, TRUE, FALSE, FALSE))
+  print("Descriptive Statistics for Categorical Variables:")
+  print(categorical_statistics)
+  
+  md_stats <- MDStats(titanic_data$Age, titanic_data$Survived)
+  print("Descriptive Bivariate Statistics for Age and Survived:")
+  print(md_stats)
+  
+  chi_square_result <- chi_square_analysis(titanic_data[, c("Pclass", "Survived")])
+  print("Chi-Square Analysis for Pclass and Survived:")
+  print(chi_square_result)
+  
+  mosaiccompare(titanic_data[, c("Survived", "Sex", "Embarked")])
+}
+
 # categorial_stats - Berechnet verschiedene Statistiken für kategoriale
 #                    Variablen. Berechnet den Modus, die empirische Entropie,
 #                    das Phi-Streuungsmaß sowie die absoluten Häufigkeiten jeder
