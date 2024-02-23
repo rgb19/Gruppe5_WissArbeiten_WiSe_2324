@@ -70,7 +70,7 @@ categorial_stats <- function(df, column_names, ordered = FALSE) {
     return(outlist)
 }
 
-              
+===========================================================================================              
 #2.iv)
 # Berechnet Durchschnitt und Varianz von einer metrischen Variable im 
 #   Zusammenhang einer Dichotomen Variable und führt einen T-Test mit diesen 
@@ -106,7 +106,13 @@ MDStats <- function(m, d){
   )
 }
                     
-=======
+===========================================================================================
+# 2.iii. 3)
+# bivariate_stats -                
+# Input:
+# Output: Benannte Liste. Jedes Objekt der Liste hat den Namen der analysierten
+#         Spalte und ist wiederum eine benannte Liste    
+                      
 source("Funktionen-R-Skript 2.R")
 
 # chi_square_analysis - Führt eine Chi-Quadrat-Analyse für "pclass" und "survived" durch
@@ -128,7 +134,7 @@ chi_square_analysis <- function(daten) {
   # Rückgabe der Ergebnisse
   return(ergebnisse)
 }
-                      
+===========================================================================================                      
 # 5.v):
 # Visualisierung von drei oder vier Variablen
         # 1: Mosaicplot ~ exakt, aber eher für Überblick
