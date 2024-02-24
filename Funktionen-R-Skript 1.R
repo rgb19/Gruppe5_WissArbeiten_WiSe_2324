@@ -20,7 +20,7 @@ calculate_descriptive_stats_categorical <- function(data) {
   stats <- lapply(cat_data, function(x) table(x, useNA = "ifany"))
   return(stats)
 }
-
+===========================================================================================     
 # 2.ii)
 
 analyze_data <- function(titanic_data) {
@@ -89,7 +89,35 @@ categorial_stats <- function(df, column_names, ordered = FALSE) {
 
     return(outlist)
 }
+                      
+=========================================================================================== 
+# 2.iii. 3)
+# bivariate_stats -                
+# Input:
+# Output: Benannte Liste. Jedes Objekt der Liste hat den Namen der analysierten
+#         Spalte und ist wiederum eine benannte Liste    
+                      
+source("Funktionen-R-Skript 2.R")
 
+# chi_square_analysis - Führt eine Chi-Quadrat-Analyse für "pclass" und "survived" durch
+#
+# Input: daten - Dataframe, der die Variablen "Pclass" und "survived" enthält
+#
+# Output: Ergebnis des Chi-Quadrat-Tests, einschließlich Chi-Quadrat-Statistik und p-Wert
+                 
+chi_square_analysis <- function(daten) {
+  # Anwendung der Chi-Quadrat-Hilfsfunktion für "Pclass" und "survived"
+  chi_quadrat_ergebnis <- chi_square_test(daten, "Pclass", "survived")
+  
+  # Erstellung einer benannten Liste für die Ergebnisse
+  ergebnisse <- list(
+    Chi_Quadrat_Statistik = chi_quadrat_ergebnis$statistic,
+    p_Wert = chi_quadrat_ergebnis$p.value
+  )
+  
+  # Rückgabe der Ergebnisse
+  return(ergebnisse)
+}
 ===========================================================================================              
 #2.iv)
 # Berechnet Durchschnitt und Varianz von einer metrischen Variable im 
@@ -127,34 +155,7 @@ MDStats <- function(m, d){
 }
                     
 ===========================================================================================
-# 2.iii. 3)
-# bivariate_stats -                
-# Input:
-# Output: Benannte Liste. Jedes Objekt der Liste hat den Namen der analysierten
-#         Spalte und ist wiederum eine benannte Liste    
-                      
-source("Funktionen-R-Skript 2.R")
-
-# chi_square_analysis - Führt eine Chi-Quadrat-Analyse für "pclass" und "survived" durch
-#
-# Input: daten - Dataframe, der die Variablen "Pclass" und "survived" enthält
-#
-# Output: Ergebnis des Chi-Quadrat-Tests, einschließlich Chi-Quadrat-Statistik und p-Wert
-                 
-chi_square_analysis <- function(daten) {
-  # Anwendung der Chi-Quadrat-Hilfsfunktion für "Pclass" und "survived"
-  chi_quadrat_ergebnis <- chi_square_test(daten, "Pclass", "survived")
-  
-  # Erstellung einer benannten Liste für die Ergebnisse
-  ergebnisse <- list(
-    Chi_Quadrat_Statistik = chi_quadrat_ergebnis$statistic,
-    p_Wert = chi_quadrat_ergebnis$p.value
-  )
-  
-  # Rückgabe der Ergebnisse
-  return(ergebnisse)
-}
-===========================================================================================                      
+                     
 # 5.v):
 # Visualisierung von drei oder vier Variablen
         # 1: Mosaicplot ~ exakt, aber eher für Überblick
