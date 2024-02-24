@@ -1,6 +1,26 @@
 # Hauptfunktionen:
 source("Funktionen-R-Skript 2.R")
 
+#1.i):
+
+#fkt1
+calculate_descriptive_stats_numeric <- function(data) {
+  numeric_vars <- sapply(data, is.numeric)
+  numeric_data <- data[, numeric_vars]
+  stats <- sapply(numeric_data, function(x) c(mean = mean(x, na.rm = TRUE), 
+                                              median = median(x, na.rm = TRUE), 
+                                              sd = sd(x, na.rm = TRUE)))
+  return(stats)
+} # smarte Listen, R-Basis liefert viel
+                  
+#fkt2
+calculate_descriptive_stats_categorical <- function(data) {
+  cat_vars <- sapply(data, is.factor)
+  cat_data <- data[, cat_vars]
+  stats <- lapply(cat_data, function(x) table(x, useNA = "ifany"))
+  return(stats)
+}
+
 # 2.ii)
 
 analyze_data <- function(titanic_data) {
