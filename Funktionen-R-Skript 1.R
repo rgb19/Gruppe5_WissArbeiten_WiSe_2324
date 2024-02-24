@@ -20,7 +20,7 @@ calculate_descriptive_stats_categorical <- function(data) {
   stats <- lapply(cat_data, function(x) table(x, useNA = "ifany"))
   return(stats)
 }
-===========================================================================================     
+# ===========================================================================================     
 # 2.ii)
 
 analyze_data <- function(titanic_data) {
@@ -90,7 +90,7 @@ categorial_stats <- function(df, column_names, ordered = FALSE) {
     return(outlist)
 }
                       
-=========================================================================================== 
+# =========================================================================================== 
 # 2.iii. 3)
 # bivariate_stats -                
 # Input:
@@ -118,7 +118,7 @@ chi_square_analysis <- function(daten) {
   # Rückgabe der Ergebnisse
   return(ergebnisse)
 }
-===========================================================================================              
+# ===========================================================================================              
 #2.iv)
 # Berechnet Durchschnitt und Varianz von einer metrischen Variable im 
 #   Zusammenhang einer Dichotomen Variable und führt einen T-Test mit diesen 
@@ -154,7 +154,7 @@ MDStats <- function(m, d){
   )
 }
                     
-===========================================================================================
+# ===========================================================================================
                      
 # 5.v):
 # Visualisierung von drei oder vier Variablen
