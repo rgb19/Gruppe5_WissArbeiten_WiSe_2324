@@ -16,3 +16,11 @@ categorical_stats <- calculate_descriptive_stats_categorical(our_titanic)
 print("Descriptive Statistics for Categorical Variables:")
 print(categorical_stats)
 ###############################################################################################
+
+ #Deskriptive bivariate Statistiken
+
+bi_categorical_stats <- chi_square_analysis(our_titanic)
+print("Descriptive bivariate Statistics for the connection between two Categorical Variables "survived" and "Pclass":")
+print(bi_categorical_stats)
+
+###############################################################################################
