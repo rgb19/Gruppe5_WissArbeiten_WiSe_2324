@@ -220,8 +220,8 @@ bar_split <- function(data,split_by = 1){
 
 # Schon besser, macht natürlich nur Sinn, wenn wir auch mehr als 2 Klassen haben
 titanic <- readRDS("titanic.rds")
-bar_split(titanic[c(1,2,4)],split_by = 2)
+#bar_split(titanic[c(1,2,4)],split_by = 2)
 # Beispielcode für Passagierklasse; Soll es noch besondere Farben geben?
-
+# auskommentiert; da source() ansonsten direkt plottet eig. aber egal
 
 
