@@ -1,6 +1,6 @@
 # Anwendung der Funktionen zur Interpretation des Datensatzes
 
-our_titanic <- readRDS("titanic.rds)
+our_titanic <- readRDS("titanic.rds")
 source("Funktionen-R-Skript 1.R") # Rstudio meckert hier wegen tokens; passt aber 
                                   # bei mir {Felix}; bsp.code werde ich auskommentieren
 source("Funktionen-R-Skript 2.R")
@@ -21,7 +21,7 @@ print(categorical_stats)
  #Deskriptive bivariate Statistiken
 
 bi_categorical_stats <- chi_square_analysis(our_titanic)
-print("Descriptive bivariate Statistics for the connection between two Categorical Variables "survived" and "Pclass":")
+print("Descriptive bivariate Statistics for the connection between two Categorical Variables Survived and Pclass")
 print(bi_categorical_stats)
 
 ###############################################################################################
