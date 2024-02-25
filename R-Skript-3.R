@@ -49,7 +49,7 @@ MDStats(our_titanic$Fare,our_titanic$Sex) # p = 5.388057e-07; H0 verworfen
 # male   -> 25.52; sd: 43.14
 ##  Starker Unterschied; Da für Sex und Survived signifikante Unterschiede
 ## bestehen, wäre es interessant zu untersuchen, wie stark sich beide unterscheiden
-##  chi_square_test(our_titanic, "Sex","Survived") -> p < 2.2e-16 << 0.0001
+chi_square_test(our_titanic, "Sex","Survived") # -> p < 2.2e-16 << 0.0001
 ##  Es erscheint also, dass sich die beiden Merkmale auch echt unterscheiden
 
 #### Datensatz nicht angepasst, Untersuchung zwar interessant, aber
